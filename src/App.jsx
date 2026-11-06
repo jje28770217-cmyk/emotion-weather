@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import WeatherBackground from './components/WeatherBackground'
 import AuthModal from './components/AuthModal'
+import MusicPlayer from './components/MusicPlayer'
 import { DemoBanner, Header, MobileNav, TABS, Toast } from './components/Layout'
 import Home from './pages/Home'
 import CalendarPage from './pages/CalendarPage'
@@ -93,7 +94,7 @@ export default function App() {
       <Header tab={tab} onTab={goto} user={user} onLogin={requireLogin} onLogout={signOut} />
       <DemoBanner onReset={() => setResetCount((c) => c + 1)} />
 
-      <main key={tab} className="animate-fade-in">
+      <main key={tab} className="animate-fade-in max-md:pb-14">
         {loading ? (
           <p className="pt-32 text-center text-ink-soft">불러오는 중…</p>
         ) : (
@@ -107,6 +108,7 @@ export default function App() {
       </main>
 
       <MobileNav tab={tab} onTab={goto} />
+      <MusicPlayer weather={mood} />
       <AuthModal open={authOpen} onClose={() => setAuthOpen(false)} onSignIn={signIn} onSignUp={signUp} />
       <Toast toast={toast} />
     </div>

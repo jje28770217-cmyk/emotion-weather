@@ -136,8 +136,56 @@ body {
   animation: flash 7s linear infinite;
 }
 
+/* ───────── 음악 플레이어 ───────── */
+@keyframes eq {
+  0%,
+  100% {
+    transform: scaleY(0.25);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+.eq-bar {
+  transform-origin: bottom;
+  animation: eq 1s ease-in-out infinite;
+}
+
+/* 볼륨 슬라이더: 채워진 부분만 브랜드 색 */
+.bgm-range {
+  -webkit-appearance: none;
+  appearance: none;
+  flex: 1;
+  min-width: 0;
+  height: 6px;
+  border-radius: 999px;
+  cursor: pointer;
+  background: linear-gradient(to right, #5663c7 var(--fill, 50%), rgba(86, 99, 199, 0.18) var(--fill, 50%));
+}
+.bgm-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #5663c7;
+  box-shadow: 0 2px 6px rgba(60, 70, 120, 0.3);
+}
+.bgm-range::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #5663c7;
+}
+.bgm-range:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(86, 99, 199, 0.25);
+}
+
 /* 접근성: 움직임 줄이기 설정 존중 */
 @media (prefers-reduced-motion: reduce) {
+  .eq-bar,
   .cloud-drift,
   .rain-drop,
   .sun-rays,

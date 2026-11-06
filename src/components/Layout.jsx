@@ -118,7 +118,7 @@ export function Toast({ toast }) {
   if (!toast) return null
   const tone = toast.type === 'error' ? 'bg-[#fde8ea] text-[#a8404f]' : 'bg-white text-ink'
   return (
-    <div className="pointer-events-none fixed inset-x-0 bottom-24 z-50 flex justify-center px-4 md:bottom-8">
+    <div className="pointer-events-none fixed inset-x-0 bottom-44 z-50 flex justify-center px-4 md:bottom-8">
       <div
         role="status"
         key={toast.id}
